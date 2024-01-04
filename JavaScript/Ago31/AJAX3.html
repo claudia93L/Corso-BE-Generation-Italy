@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Importa XML</title>
+    <style>
+        #mostraDVD {
+            border: 2px solid gray;
+            padding: 5px;
+            background-color: black;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="mostraDVD"></div><br/>
+    <button id="precedente"><<</button><button id="successivo">>></button>
+   
+    <script>
+
+        let i = 0, len, dvd;
+        const xhttp = new XMLHttpRequest();
+
+        xhttp.onload = function(){ // salverà la lunghezza dentro len
+            const xmlDoc = xhttp.responseXML;
+            dvd = xmlDoc.getElementsByTagName("dvd"); // il tag dvd è quello del file XML
+            len = dvd.length; // numero di film presenti nel catalogo XML
+            mostra(i);
+        }
+
+        xhttp.open("GET", "catalogo_dvd.xml", true);
+        xhttp.send();
+
+        function mostra(i){ //la i arriverà dal button premuto
+            document.getElementById("mostraDVD").innerHTML = "Titolo: " + 
+            dvd[i].getElementsByTagName("titolo")[0].childNodes[0].nodeValue + "<br/>Regista: " + 
+            dvd[i].getElementsByTagName("regista")[0].childNodes[0].nodeValue + "<br/>Nazione: " + 
+            dvd[i].getElementsByTagName("nazione")[0].childNodes[0].nodeValue + "<br/>Genere: " + 
+            dvd[i].getElementsByTagName("genere")[0].childNodes[0].nodeValue + "<br/>Anno: " +
+            dvd[i].getElementsByTagName("anno")[0].childNodes[0].nodeValue + "<br/>Durata: " +
+            dvd[i].getElementsByTagName("durata")[0].childNodes[0].nodeValue;
+        }
+
+        document.getElementById("successivo").addEventListener("click", successivo);
+
+        function successivo(){
+
+            if(i < len-1){ // se non sono all'ultimo film... (aggiornamento del contatore nei vari casi indicati) 
+                i++; // ...mi sposto al successivo
+            } else { //...altrimenti...
+                i = 0; //...torno all'inizio
+            }
+        
+            mostra(i); // ...mostra il film i-esimo
+        }
+
+            document.getElementById("precedente").addEventListener("click", precedente);
+
+            function precedente(){
+
+                if(i > 0){ // se non sono al primo film...
+                    i--; //...mi sposto al precedente...
+                } else { //..altrimenti..
+                    i = len-1; // ...mi sposto sull'ultimo film
+                }
+
+                mostra(i); // ...mostra il film i-esimo
+            }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struttura condizionale in JavaScript</title>
+</head>
+<body>
+    <script>
+        let ore = 12; /* Creazione di variabile e assegnazione valore */
+        let minuti = 4; 
+
+        if (minuti < 10) {
+            minuti = "0" + minuti;
+        }
+
+        document.write("Sono le " + ore + ":" + minuti);
+
+        if (ore > 6 && ore <= 12) {
+            document.write(" Buongiorno!");
+        } else if (ore > 12 && ore <= 18) {
+            document.write("Buon pomeriggio");
+        } else if (ore > 18 && ore <= 23) {
+            document.write(" Buonasera!");
+        } else if ((ore > 23 && ore <= 24) || (ore >= 0 && ore <= 6)) {
+            document.write(" Buonanotte!");
+        }
+        /* &&: valida entrambe le condizioni
+        ||: valida una delle condizioni */
+    </script>
+</body>
+</html>

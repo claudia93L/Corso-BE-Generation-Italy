@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anno di nascita</title>
+</head>
+<body>
+    <select>
+        <script>
+            // versione con ciclo while. Si utilizza soprattutto quando si devono fare delle verifiche di errori e non si sa quante volte si deve effettuare
+            document.write("<option selected>Anno di nascita (while)</option>");
+            let contatore = 1922;
+
+            while (contatore <= 2022) {
+                document.write("<option>" + contatore + "</option>");
+                contatore++;
+            }
+        </script>
+    </select>
+    <select>
+        <script>
+            // versione con ciclo for - Si utilizza quando sai di certo quante volte dovrà essere utilizzato. Se si vuole richiedere un'istruzione più volte in caso di errore di compilazione, non si deve utilizzare. In uso per scansione array
+            document.write("<option selected>Anno di nascita (for)</option>");
+
+            for (let x = 1922; x <= 2022; x++) {
+                document.write("<option>" + x + "</option>");
+            }
+        </script>
+    </select>
+</body>
+</html>

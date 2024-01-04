@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaining jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <h2>Paragrafo</h2>
+    <p id="par1">Questo paragrafo subirà un cambio di colore del testo, quindi scomparirà e riapparirà
+    </p>
+    <button>Clicca qui</button>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){ //callback su chaining
+                $("p").css("color", "red").slideUp(2000, function(){
+                    $("p").css("color", "blue"); //ripristino del colore originale
+                }).slideDown(2000);
+            });
+        });
+    </script>
+</body>
+</html>

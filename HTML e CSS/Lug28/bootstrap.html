@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 1</title>
+    <link rel="stylesheet" href="bootstrap-5.2.0-dist/css/bootstrap.css">
+    <!-- Link alternativo alla risorsa web, si prende il codice dal sito ufficiale Get Bootstrap sezione CDN via jsDelivr: 
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script> -->
+<link rel="stylesheet" href="mioCss.css"> <!-- Il mio foglio di stile personale, da richiamare sempre dopo Bootstrap-->
+</head>
+<body>
+    <div class="container">
+        <div class="testo">Primo div</div>
+        <div class="testo">Secondo div</div>
+        <div class="testo">Terzo div</div>
+        <div style="clear:both"></div> <!-- Div di interruzione dei float -->
+        <div class="row"> <!-- Riga di Bootstrap, può contenere fino a 12 celle/colonne distinte -->
+            <div class="col-4"> <!-- Cella larga 4/12 -->
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a posuere ipsum. Cras ex enim, ullamcorper non eleifend a, accumsan in velit. Integer scelerisque ullamcorper metus, placerat tincidunt sem pharetra vitae. Fusce vitae dui placerat magna posuere sollicitudin. Sed ut eros ultrices, tempor erat sed, commodo leo. Vivamus et mi et lorem egestas dictum. Duis ornare, leo non tincidunt dignissim, libero est finibus eros, quis ultricies libero dolor quis sem. Proin tempor, justo et rhoncus pretium, lectus massa interdum metus, quis gravida eros neque sit amet magna. Curabitur eget dui egestas, tempor mauris eget, tempus turpis.
+            </div>
+            <div class="col-4"> <!-- Cella larga 4/12 -->
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a posuere ipsum. Cras ex enim, ullamcorper non eleifend a, accumsan in velit. Integer scelerisque ullamcorper metus, placerat tincidunt sem pharetra vitae. Fusce vitae dui placerat magna posuere sollicitudin. Sed ut eros ultrices, tempor erat sed, commodo leo. Vivamus et mi et lorem egestas dictum. Duis ornare, leo non tincidunt dignissim, libero est finibus eros, quis ultricies libero dolor quis sem. Proin tempor, justo et rhoncus pretium, lectus massa interdum metus, quis gravida eros neque sit amet magna. Curabitur eget dui egestas, tempor mauris eget, tempus turpis.
+            </div>
+            <div class="col-4"> <!-- Cella larga 4/12 -->
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a posuere ipsum. Cras ex enim, ullamcorper non eleifend a, accumsan in velit. Integer scelerisque ullamcorper metus, placerat tincidunt sem pharetra vitae. Fusce vitae dui placerat magna posuere sollicitudin. Sed ut eros ultrices, tempor erat sed, commodo leo. Vivamus et mi et lorem egestas dictum. Duis ornare, leo non tincidunt dignissim, libero est finibus eros, quis ultricies libero dolor quis sem. Proin tempor, justo et rhoncus pretium, lectus massa interdum metus, quis gravida eros neque sit amet magna. Curabitur eget dui egestas, tempor mauris eget, tempus turpis.
+            </div> <!-- La riga di Bootstrap è piena con 12/12 -->
+        </div>
+        <div class="row">
+            <div class="col-3" style="background-color: sandybrown; color: darkred;">
+                col-3 con padding predefinito
+            </div>
+            <div class="col-3" style="background-color: darkolivegreen; color: aliceblue">
+                col-3 con padding predefinito
+            </div>
+            <div class="col-3" style="background-color: darkcyan; color: lightgoldenrodyellow">
+                col-3 con padding predefinito
+            </div>
+            <div class="col-3" style="background-color: salmon; color: darkblue">
+                col-3 con padding predefinito
+            </div>
+        </div>
+        <div class="row g-0"> <!-- Riga di Bootstrap con celle senza padding predefinito -->
+            <div class="col-3" style="background-color: sandybrown; color: darkred;">
+                col-3 senza padding predefinito
+            </div>
+            <div class="col-3" style="background-color: darkolivegreen; color: aliceblue">
+                col-3 senza padding predefinito
+            </div>
+            <div class="col-3" style="background-color: darkcyan; color: lightgoldenrodyellow">
+                col-3 senza padding predefinito
+            </div>
+            <div class="col-3" style="background-color: salmon; color: darkblue">
+                col-3 senza padding predefinito
+            </div>
+        </div>
+        <div class="row"> <!-- L'ordine delle colonne si inverte a seconda della dimensione dello schermo -->
+            <div class="col-4 order-sm-3 order-md-1">CIAO</div>
+            <div class="col-4 order-sm-2 order-md-2">MONDO</div>
+            <div class="col-4 order-sm-1 order-md-3">BELLO</div>
+        </div>
+        <div class="row">
+            <div class="col-4 offset-sm-3 order-md-1">IO</div>
+            <div class="col-4 offset-sm-2 order-md-2">SONO</div>
+            <div class="col-4 offset-sm-1 order-md-3">IRON MAN</div>
+        </div>
+        <div class="row"> <!-- Riga di Bootstrap con celle responsive -->
+            <div class="col-2 col-sm-6 col-md-4 col-lg-12 col-xl-6" style="background-color:yellowgreen;"> <!-- sm, md, lg, xl sono classi che individuano i breakpoint, e inglobano le media query di CSS -->
+                col con breakpoint
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-7"> <!-- 7/12 -->
+                <div class="row" style="height: 50%;"> <!-- Sub row n.1 -->
+                    <div class="col-6" style="background-color:rosybrown;"> <!-- Sub row n.1 6/12-->
+                    Lorem Ipsum dolor sti amet
+                    </div>
+                    <div class="col-6" style="background-color: navy; color: azure;"> <!-- Sub row n.1 6/12-->
+                        Lorem Ipsum dolor sti amet
+                    </div>
+                </div>
+                <div class="row" style="height: 50%;"> <!-- Sub row n.2-->
+                    <div class="col-6" style="background-color: black; color: white;"> <!-- Sub row n.2 6/12-->
+                        Lorem Ipsum dolor sti amet
+                    </div>
+                    <div class="col-6" style="background-color: beige;"> <!-- Sub row n.2 6/12-->
+                    Lorem Ipsum dolor sti amet
+                    </div> 
+                </div>
+            </div>
+            <div class="col-5" style="background-color: yellow;"> <!-- 12/12 -->
+                Cella di completamento della riga
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

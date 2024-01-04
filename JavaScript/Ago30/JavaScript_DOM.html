@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipolazione DOM in JS</title>
+</head>
+<body>
+    <h2>Input text con "regole" (preventDefault())</h2>
+    <p>Inserisci il tuo nome usando soltanto lettere minuscole</p>
+    <input type="text" id="myName">
+    <script>
+        let mioNome = document.getElementById("myName");
+        mioNome.addEventListener("keypress", checkName);
+
+        function checkName(evento){ //funzione lanciata ad ogni tasto premuto, non alla fine dell'immissione
+            let charCode = evento.charCode; //associo l'evento alla variabile
+
+            if(charCode != 0){
+                if(charCode < 97 || charCode > 122){ // da 97 a 122 sono le lettere minuscole del codice ASCII
+                    evento.preventDefault(); // blocco l'elemento DOM che ha lanciato la function ed evito l'immissione
+                    alert("Per favore usa solo lettere minuscole!");
+                };
+            };
+        };
+    </script>
+
+    <h2>Link disattivato (preventDefault() e removeEventListener())</h2>
+    <p>
+        <input type="checkbox" name="privacy" value="ok" id="privacy" checked>Acconsento al trattamento dei dati personali per effettuare la ricerca<br>
+        <a href="https://www.google.it" id="myLink" target="_blank">Vai su Google</a> <!--Non funziona se deseleziono la checkbox-->
+    </p>
+    <script>
+        let casella = document.getElementById("privacy");
+        casella.addEventListener("click", controlla);
+        
+        function controlla(){
+            if(casella.checked){ // se la checkbox è selezionata
+                document.getElementById("myLink").removeEventListener("click", disabilita); //... riabilito il link...
+            } else {
+                document.getElementById("myLink").addEventListener("click", disabilita) // ...altrimenti disabilito il link
+            };
+        };
+
+        function disabilita(evento){
+            evento.preventDefault(); // blocco l'elemento DOM che ha lanciato la function
+        }
+    </script>
+
+    <h2 class="esempio1">Modifica del primo elemento di una classe (querySelector())</h2>
+    <p class="esempio1">Questo paragrafo ha class esempio1</p>
+    <p><button id="qs">Clicca per cambiare colore di sfondo al primo elemento di classe esempio1</button></p>
+    <script>
+        document.getElementById("qs").addEventListener("click", cambiaSfondo);
+
+        function cambiaSfondo(){
+            document.querySelector(".esempio1").style.backgroundColor = "lightblue"; //cambierà lo sfondo soltanto del primo elemento che viene trovato con la classe selezionata
+        }
+    </script>
+
+    <h2 class="esempio2">Modifica di tutti gli elementi di una classe (querySelectorAll())</h2>
+    <p class="esempio2">Questo paragrafo ha classe esempio 2</p>
+    <p><button id="qsa">Clicca per cambiare colore di sfondo a tutti gli elementi di classe esempio2</button></p>
+
+    <script>
+        document.querySelector("#qsa").addEventListener("click", cambiaSfondi);
+
+    function cambiaSfondi(){
+        let x, i;
+        x = document.querySelectorAll(".esempio2"); // x è l'array di tutti gli elementi con classe esempio2
+
+        for(i = 0; i < x.length; i++){ // creiamoo un ciclo che si ripeterà per tutta la lunghezza dell'array.
+            x[i].style.backgroundColor = "yellow"; //cambiamo il contenuto dell'array x, modificandone attraverso il CSS il colore di sfondo
+        };
+    };
+    </script>
+</body>
+</html>

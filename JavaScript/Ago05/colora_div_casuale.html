@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colora div casuale</title>
+    <style>
+        .interno {
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="contenitore">
+        <script>
+            for (let i = 1; i <= 64; i++) {
+                document.write("<div class='interno'></div>");
+            }
+        </script>
+    </div>
+    <script>
+        window.addEventListener("load", colora);
+
+        function colora() {
+            let elemento = document.getElementById("contenitore").getElementsByTagName("div"); //genero un array dei div
+
+            let numero = elemento.length;
+
+            for (i = 0; i < numero; i++) { //ciclo per costruire i codici dei colori
+                let colore = "#";
+
+                for (let c = 1; c <= 3; c++) { // c per i tre canali dei colori RGB
+                    let casuale = Math.floor(Math.random()*256); // sorteggio un intero tra 0 e 255 (256 escluso)
+                    let esadecimale = casuale.toString(16); //toString(16) converte un numero decimale in esadecimale
+                    colore += esadecimale; // concateno a colore la String esadecimale
+                }
+
+                // giunto qui, ho un colore RGB pronto da assegnare al div i-esimo corrente
+                elemento[i].style.backgroundColor = colore;
+            }
+
+            setTimeout("colora()", 500);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotto e altro</title>
+</head>
+<body>
+    <script>
+        let ore = 11;
+        ore = ore + 1; // analogo a ore++;
+        document.write(ore);
+
+        if(ore <= 12) {
+            document.write(" Buongiorno!<br/>");
+        } else {
+            document.write(" Buonasera!<br/>")
+        }
+
+        let numero = 5; 
+        numero += 10; // equivale a numero = numero + 10 (forma compatta per aggiungere alla variabile una quantità e salvarla nella variabile stessa)
+        document.write("<strong>" + numero + "</strong><br/>"); // stamperà 15
+        numero = Math.floor(Math.random()*90+1); 
+        // Math.random() sceglie un valore decimale tra 0 incluso e 1 escluso 
+        // Math.random*90() sceglie un valore decimale tra 0 incluso e 90 escluso
+        // Math.random*90+1() sceglie un valore decimale tra 0 incluso e 91 escluso
+        // Math.floor() tronca la parte decimale lasciando un valore intero tra 1 e 90 
+        document.write("Estrazione del lotto: " + numero + "</br>"); // allo stato attuale, non abbiamo alcun controllo sul numero già estratto, per andarlo a rimuovere. I numeri già usciti si salveranno con gli array e verranno aggiunti ad essi con ogni nuova estrazione
+
+        numero = Math.floor(Math.random()*6+1); // sceglie un numero intero tra 1 e 6, simulando il lancio di un dado
+        document.write("Lancio di un dado: " + numero);
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+    <link rel="stylesheet" href="mioStile.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <title>Bootstrap - Card e Buttons</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle mb-3" data-bs-toggle="dropdown">Dropdown button</button>
+            <div class="dropdown-menu">
+                <h5 class="dropdown-header"><strong>Inserzioni</strong></h5>
+                <div class="dropdown-divider"></div> <!-- Linea di separazione tra titolo e voci del menù -->
+                <a href="https://www.tomsguide.com/us/best-headphones,review-1988.html" class="dropdown-item" target="_blank">Best headphones 2022</a>
+                <a href="https://www.apple.com/it/newsroom/2020/10/apple-introduces-iphone-12-pro-and-iphone-12-pro-max-with-5g/" class="dropdown-item" target="_blank">Iphone 14 Max</a>
+                <a href="https://it.ign.com/ps5/195289/news/ps5-online-la-beta-del-nuovo-software-di-sistema-introduce-supporto-1440p-cartelle-per-i-giochi-e-ta" class="dropdown-item" target="_blank">PS5 to buy</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <div class="card">
+                    <!-- Immagine inserita affinchè sia ottimizzata per stare in cima alla card -->
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80"
+                        alt="Headphones" class="card-img-top">
+                    <div class="card-body">
+                        <!-- Corpo della card -->
+                        <h5 class="card-title">Best headphones of 2022</h5>
+                        <p class="card-text">The best headphones and earbuds offer balanced performance, great features
+                            and phenomenal value</p>
+                        <a href="https://www.tomsguide.com/us/best-headphones,review-1988.html" target="_blank"
+                            class="btn btn-primary">What's the best for you?</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="card">
+                    <img src="https://www.apple.com/newsroom/images/product/iphone/standard/Apple_announce-iphone12pro_10132020.jpg.landing-big_2x.jpg"
+                        alt="Iphone14" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Upcoming Iphone 14 max</h5>
+                        <p class="card-text">The newest Iphone from Apple, on sale in 3 weeks. Save the date!</p>
+                        <a href="https://www.apple.com/it/newsroom/2020/10/apple-introduces-iphone-12-pro-and-iphone-12-pro-max-with-5g/"
+                            target="_blank" class="btn btn-primary">Preorder yours now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="card">
+                    <img src="https://nospoiler.it/storage/posts/featured/0fa165a8-6536-41f3-894e-7823e856b750.jpg"
+                        alt="PlayStation 5" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">PlayStation 5 finally in store</h5>
+                        <p class="card-text">The latest Sony console, the PS5, is finally easily available in every
+                            store worldwide</p>
+                        <a href="https://it.ign.com/ps5/195289/news/ps5-online-la-beta-del-nuovo-software-di-sistema-introduce-supporto-1440p-cartelle-per-i-giochi-e-ta"
+                            target="_blank" class="btn btn-primary">Discover where to buy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary mt-3" data-bs-toggle="collapse" data-bs-target="#esempio">Collapse button</button>
+        <div class="collapse" id="esempio">Testo visualizzato/nascosto cliccando su collapse button</div>
+    </div>
+</body>
+
+</html>

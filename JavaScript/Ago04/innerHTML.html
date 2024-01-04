@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esempi di innerHTML</title>
+</head>
+<body>
+    <button id="button1">Clicca qui</button>
+    <button id="button2">Verifica contenuto</button>
+    <button id="button2bis">Verifica testo</button>
+    <div id="contenuto1" style="height: auto; min-height: 16px; border: 1px solid blue;"></div> <!-- div di output -->
+    <button id="button3">Clicca qui</button>
+    <button id="button4">Verifica contenuto</button>
+    <div id="contenuto2" style="height: auto; min-height: 16px; border: 1px solid red;">
+        Qui compariranno numeri progressivi e un'immagine
+    </div> <!-- altro div di output -->
+    <script>
+        // associo evento a button1 affinchè lanci la funzione richiesta
+        document.getElementById("button1").addEventListener("click", riempi1);
+
+        // implemento la funzione riempi1
+        function riempi1() {
+            // innerHTML in scrittura (a sinistra)
+            document.getElementById("contenuto1").innerHTML = "<strong><font color='red'>Hai cliccato su button1!</font></strong>"; // con innerHTML inviamo un contenuto a distanza 
+        }
+
+        // associo evento a button2 affinchè lanci l'alert di verifica
+        document.getElementById("button2").addEventListener("click", verifica1);
+
+        //implemento la funzione verifica1
+        function verifica1() {
+            let codice = document.getElementById("contenuto1").innerHTML; // innerHTML in lettura (se a destra, recupero il contenuto del div e lo salvo nella variabile)
+            alert(codice);
+        }
+
+        // associo evento a button2bis affinchè lanci un altro alert di verifica
+        document.getElementById("button2bis").addEventListener("click", verifica1bis);
+
+        // implemento la funzione verifica1bis
+        function verifica1bis() {
+            let testo = document.getElementById("contenuto1").innerText; //innerText - prelevo solo il testo del div
+            alert(testo);
+        }
+
+        let conta = 1; 
+
+        // associo evento a button3 affinchè lanci la funzione richiesta
+        document.getElementById("button3").addEventListener("click", riempi2);
+
+        // implemento la funzione riempi2
+        function riempi2() {
+            // innerHTML in aggiunta
+            document.getElementById("contenuto2").innerHTML = document.getElementById("contenuto2").innerHTML + "ciao n° " + conta + "<img src='smile.png' style='width: 32px; height: 32px;'/>"; // inserisco un'immagine con l'innerHTML e lo stilizzo con lo style inline
+            conta++; // incremento di uno il valore della variabile conta ad ogni click
+        }
+
+        // associo evento a button4 affinchè lanci l'alert di verifica
+        document.getElementById("button4").addEventListener("click", verifica2);
+
+        // implemento la funzione verifica2
+        function verifica2() {
+            let codice = document.getElementById("contenuto2").innerHTML; // innerHTML in lettura
+            alert(codice);
+        }
+    </script>
+</body>
+</html>

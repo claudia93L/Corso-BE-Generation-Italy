@@ -1,0 +1,1 @@
+Questo è un testo esterno che verrà aperto dalla pagina web come file esterno tramite un apposito div AJAX.

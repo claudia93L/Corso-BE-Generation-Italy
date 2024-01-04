@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cicli annidati</title>
+</head>
+<body>
+    <select name="" id="">
+        <script>
+            for(let numero = 1; numero <= 10; numero++) { // ciclo esterno. Finchè numero è <= 10, numero si incrementa. Dopo la conclusione del primo ciclo, avvierà un secondo ciclo incrementando numero di 1 ogni volta
+                document.write("<option>"); // ci limitiamo solo ad aprirla, perchè il contenuto dell'option sarà oggetto di un ciclo che si trova all'interno
+
+                for (let contatore = numero; contatore <= 5*numero; contatore+=numero) { 
+                    // ciclo interno, vede la variabile numero
+                    // contatore inizia dal valore corrente di numero. Finchè è minore di 5 volte numero corrente, contatore incrementa del valore di numero corrente
+                    document.write(contatore + " ");
+                }
+
+                document.write("</option>");
+            }
+        </script>
+    </select>
+</body>
+</html>

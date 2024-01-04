@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Importa XML</title>
+    <style>
+        table, th, td {
+            border: 2px solid black;
+            border-collapse: collapse; /* nasconde il bordo se la tabella è vuota */
+        }
+
+        th, td {
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Collezione DVD</h2>
+    <button id="pulsante">Mostrami la collezione di DVD</button><br/><br/>
+    <table id="tabella"></table>
+
+    <script>
+        document.getElementById("pulsante").addEventListener("click", loadDoc);
+
+        function loadDoc(){
+            const xhttp = new XMLHttpRequest();
+
+            //Per motivi di sicurezza, lavorando con i server è bene lavorare di "scatolette" di funzioni per le funzioni anonime
+            xhttp.onload = function(){ //in partenza all'istanza dell'XHTTP
+                myFunction(this); //codice preparatorio
+            }
+
+            xhttp.open("GET", "catalogo_dvd.xml", true);
+            xhttp.send();
+        }
+
+        function myFunction(xml){ //il parametro è un nome a scelta, ma rappresenta il file XML esterno che verrà gestito dalla funzione
+            const xmlDoc = xml.responseXML;
+            const x = xmlDoc.getElementsByTagName("dvd"); // dvd è un tag presente nel file XML. Array che contiene tutti i dvd
+            let table = "<tr><th>Titolo</th><th>Genere</th></tr>";
+
+            for(let i = 0; i < x.length; i++){ //scansiono l'array dei dvd acquisiti dal file XML
+                table += "<tr><td>" + x[i].getElementsByTagName("titolo")[0].childNodes[0].nodeValue + "</td><td>" + 
+                    x[i].getElementsByTagName("genere")[0].childNodes[0].nodeValue + "</td></tr>"; //lo zero accanto al titolo nelle quadre, gli si impone di fermarsi al contesto dell'attributo dei titoli, non spostandosi su altri eventuali attributi
+                // lo zero accanto a childNodes indica il primo nodo
+                // titolo e genere sono tag del file XML
+            }
+            document.getElementById("tabella").innerHTML = table;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sposta div</title>
+    <style>
+        #blocco {
+            background-color: #f98800;
+            width: 200px; 
+            height: 20px;
+            color: #ffff00;
+            text-align: center;
+            border: double;
+            border-color: #6100ff;
+            position: absolute;
+            /* JavaScript ignora questi attributi, perchè interviene sull'attributo style del tag. Se uso questi attributi, il div può partire soltanto dalla posizione 0px 0px
+            top: 0px;
+            left: 0px;
+            */
+    }
+    </style>
+</head>
+<body>
+
+    <div id="blocco" style="top: 50px; left: 50px">Generation</div>
+
+    <script> // scrivo lo script nel body perchè ho necessità di leggere lo style del div a riga 27
+        const x = screen.availWidth; // larghezza disponibile
+        const y = screen.availHeight; // altezza disponibile
+        document.addEventListener("keydown", logKey); // invoco la funzione alla pressione di un tasto 
+        
+        function logKey(e) { // la funzione ha come argomento l'evento scatenante perchè va analizzato il tasto premuto
+            let tasto = e.keyCode; // salvo il keyCode del tasto premuto
+            let sinistra = document.getElementById("blocco").style.left; // leggo left dallo style del div alla riga 27
+            let sopra = document.getElementById("blocco").style.top; // leggo top dallo style del div alla riga 27
+
+            if (tasto == 39 || tasto == 68) { // se il tasto premuto è la freccia a destra oppure la D
+                // sinistra vale 50px, con substring(0, sinistra.length-2) diventa 50, rimuovendo px per poter fare conteggio convertendolo in Number e le sommo 25
+                sinistra = Number(sinistra.substring(0, sinistra.length-2)) + 25;
+
+                if (sinistra <= x - 200) { // se il div con la sua width non è già all'estrema destra della finestra...
+                    document.getElementById("blocco").style.left = sinistra + "px"; // riaggancio px al valore aggiornato di sinistra
+                }
+            } else if (tasto == 37 || tasto == 65) { // se il tasto premuto è la freccia a sinistra oppure la A
+                sinistra = Number(sinistra.substring(0, sinistra.length-2)) - 25;
+
+                if (sinistra >= 0) { // se il div non è già all'estrema sinistra della finestra...
+                    document.getElementById("blocco").style.left = sinistra + "px";
+                }
+            } else if (tasto == 38 || tasto == 87) { // se il tasto premuto è la freccia in alto oppure la W
+                sopra = Number(sopra.substring(0, sopra.length-2)) - 25;
+
+                if (sopra >= 0) { // se il div non è già in cima alla finestra...
+                    document.getElementById("blocco").style.top = sopra + "px";
+                }
+            } else if (tasto == 40 || tasto == 83) { // se il tasto premuto è la freccia in basso oppure la S
+                sopra = Number(sopra.substring(0, sopra.length-2)) + 25;
+
+                if (sopra >= 0) { // se il div non è già in fondo alla finestra...
+                    document.getElementById("blocco").style.top = sopra + "px";
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>

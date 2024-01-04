@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voti fatti male</title>
+    <style>
+        table {
+            border: 2px solid blue;
+            background-color: cadetblue;
+            margin-left: auto;
+            margin-right: auto;
+            width: 400px;
+        }
+
+        td {
+            border: 1px solid rgb(60, 4, 92);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <font size="5" face="Verdana">
+        <table>
+            <tr>
+                <td align="center">Studenti</td>
+                <td align="center">Voti</td>
+            </tr>
+            <script>
+                let studenti = prompt("Quanti studenti sono?");
+                for (let i = 0; i < studenti; i++) {
+                    let nome = prompt("Nome dello studente");
+                    let voto = Number(prompt("Qual è il voto conseguito da " + nome + "?"));
+                    
+
+                    switch (voto) {
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                        case 5:
+                            //istruzioni svolte se voto vale da 1 a 5
+                            giudizio = "<font color='red'>Insufficiente</font>";
+                            break; //esco dallo switch perchè il voto è stato trovato
+                        case 6:
+                            giudizio = "<font color='green'>Sufficiente</font>";
+                            break;
+                        case 7:
+                            giudizio = "<font color='green'>Discreto</font>";
+                            break;
+                        case 8:
+                            giudizio = "<font color='green'>Buono</font>";
+                            break;
+                        case 9:
+                            giudizio = "<font color='green'>Ottimo</font>";
+                            break;
+                        case 10:
+                            giudizio = "<font color='red'>Eccellente</font>";
+                            break;
+                        default:
+                            giudizio = "Non classificato - Errore ";
+
+                            break
+
+                            
+
+                    }
+                    document.write("<tr><td border='2px' valign='center'>" + nome + "</td><td border='2px' valign='center'>" + giudizio + "</td></tr>");
+                }
+
+            </script>
+        </table>
+    </font>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #AFEEEE;
+        }
+
+        #primo {
+            background-color: 	#EEE8AA;
+            height: 200px;
+            width: 200px;
+            color: #CD5C5C;
+            margin: 30px auto;
+            padding: 10px;
+        }
+
+        #secondo {
+            background-color: #FFD700;
+            height: 200px;
+            width: 200px;
+            color: #000;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+            padding: 10px;
+        }
+
+        #terzo {
+            background-color: #FFA07A;
+            width: 200px;
+            height: 200px;
+            color: #E0FFFF;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+        }
+    </style>
+    <title>Prima funzione</title>
+</head>
+
+<body>
+    <div id="primo">Clicca in questo riquadro per eseguire la funzione messaggio, <br>
+        passaci sopra con il mouse per eseguire il cambio di sfondo, <br>
+        allontanati con il mouse dal div per ripristinare lo sfondo originale</div>
+    <div id="secondo">Passa su questo riquadro per eseguire la funzione messaggio().</div>
+    <div id="terzo" data-coloreover="#00f" data-coloreout="#1d3f18">Clicca due volte per eseguire la funzione
+        messaggio(), <br>
+        passaci sopra per cambiare lo sfondo e ripristinarlo.</div>
+
+    <script>
+        const primo = document.getElementById("primo"); // costante che si aggancia sempre al div con id primo
+        const secondo = document.getElementById("secondo"); // costante che si aggancia sempre al div con id secondo
+        const terzo = document.getElementById("terzo"); // costante che si aggancia sempre al div con id terzo
+
+        // correlazione tra elementi della pagina web (DOM), eventi e funzioni
+        // traduco in codice quanto scritto nei tre div
+        primo.addEventListener("mouseover", sfondo); // aggiunta evento dell'azione della riga 12. Le funzioni tra parentesi verranno create successivamente
+        primo.addEventListener("click", messaggio); // azione riga 11
+        primo.addEventListener("mouseout", ripristinaSfondo) // azione riga 13
+
+        secondo.addEventListener("mouseover", messaggio) // azione riga 14
+
+        terzo.addEventListener("dblclick", messaggio); // azione riga 15
+        terzo.addEventListener("mouseover", sfondoDinamico) // azione 1 riga 16
+        terzo.addEventListener("mouseout", sfondoDinamico); // azione 2 riga 16
+
+        // creazione variabile di servizio
+        let sfondoPrimo = primo.style.backgroundColor; // salvo il colore di sfondo originale di primo
+
+        // funzione lanciata al passaggio del mouse su primo
+        function messaggio() {
+            alert("Benvenuto, grazie della visita!")
+        } // creazione funzione messaggio, che verrà lanciata seguendo le istruzioni riportate negli eventi scritti in precedenza
+
+        // funzione lanciata allontanando il mouse da primo
+        function sfondo() {
+            primo.style.backgroundColor = "#fff";
+        } // style collega JS a CSS, backgroundColor agisce su background-color di CSS
+
+        // funzione lanciata allontanando il mouse da primo
+        function ripristinaSfondo() {
+            primo.style.backgroundColor = sfondoPrimo;
+        }
+
+        function sfondoDinamico(event) {
+            let elem = event.currentTarget; // recupero dell'evento, perchè una volta nella funzione l'evento invocante si perde
+            if (event.type == "mouseover") {
+                elem.style.backgroundColor = elem.dataset.coloreover; // recupero il valore dato all'attributo data-coloreover. I due uguali sono un confronto
+            } else if (event.type == "mouseout") { // la funzione è stata avviata da un mouseout?
+                elem.style.backgroundColor = elem.dataset.coloreout; // recupero il valore dato all'attributo data-coloreout
+
+                // N.B. la funzione è predisposta per qualunque div, infatti usa elem e non l'id del div
+            }
+        }
+    </script>
+</body>
+
+</html>

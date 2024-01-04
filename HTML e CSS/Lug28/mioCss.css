@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+body {
+    background-color: antiquewhite;
+}
+
+/* Integro o sovrasrivo impostazioni del .container di Bootstrap */
+
+.container {
+    background-color: lavender;
+    border: 4px double darkmagenta;
+}
+
+.testo {
+    position: relative;
+    float: left;
+    width: 31%;
+    border: 1px solid darkblue;
+    margin: 0px 1%; /* Con 1% laterale arrivi a ingombro orizzontale del 33% per ogni div di questa classe */
+    background-color: lightpink;
+}
+
+/* Integro o sovrascrivo impostazioni del .row di Bootstrap */
+
+.row {
+    border: 1px dotted white;
+    padding: 5px 5px 5px 0px;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipolazione DOM jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        ul {
+            width: 200px;
+            height: 100px;
+            background-color: antiquewhite;
+            border: 1px solid black;
+            padding-top: 18px;
+
+            }
+
+            .verde {
+                background-color: aquamarine;
+            }
+
+            button {
+                width: 150px;
+                margin-bottom: 3px;
+            }
+    </style>
+</head>
+<body>
+    <h2 id="titolo1">Paragrafo</h2>
+    <p id="par1"><font face="arial">Questo paragrafo contiene una parola in <strong>grassetto</strong>.</font></p>
+    <ul>
+        <li>Primo</li>
+        <li>Secondo</li>
+        <li>Terzo</li>
+        <li>Quarto</li>
+    </ul>
+    <input type="text" id="nome" placeholder="Scrivi il tuo nome"><br><br>
+    <button id="btn1">Mostra testo text()</button>
+    <button id="btn2">Mostra HTML</button>
+    <button id="btn3">Mostra nome</button>
+    <button id="btn4">Cambia testo titolo</button>
+    <button id="btn5">Cambia HTML titolo</button>
+    <button id="btn6">Cambia input</button>
+    <button id="btn7">append()</button>
+    <button id="btn8">prepend()</button>
+    <button id="btn9">before()</button>
+    <button id="btn10">after()</button>
+    <button id="btn11">remove()</button>
+    <button id="btn12">empty()</button>
+    <button id="btn13">addClass()</button>
+    <button id="btn14">removeClass()</button>
+    <button id="btn15">toggleClass()</button>
+    <button id="btn16">Cambio massivo CSS</button>
+
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                alert("Testo: " + $("#par1").text()); //prelevo il testo dal paragrafo e lo copio nell'alert
+            });
+            $("#btn2").click(function(){
+                alert("HTML: " + $("#par1").html()); //prelevo il contenuto formattato dal paragrafo e lo copio nell'alert
+            });
+            $("#btn3").click(function(){
+                alert("Valore input: " + $("#nome").val()); //copio il value dell'input nell'alert
+            });
+            $("#btn4").click(function(){
+                $("#titolo1").text("Nuovo titolo"); //cambio il testo dell'H2
+            });
+            $("#btn5").click(function(){
+                $("#titolo1").html("<em><font color='red'>Nuovo HTML titolo</font></em>"); // cambio il codice HTML dell'H2
+            });
+            $("#btn6").click(function(){
+                $("#nome").val("Nuovo testo input");
+            }); // cambio il valore dell'input
+            $("#btn7").click(function(){
+                $("font").append(" Questo testo è aggiunto con append, alla fine del tag font.");
+            });
+            $("#btn8").click(function(){
+                $("font").prepend("Questo testo è aggiunto con prepend, all'inizio del tag font. ");
+            });
+            $("#btn9").click(function(){
+                $("font").before("Questo testo è aggiunto con before, prima del tag font. ");
+            });
+            $("#btn10").click(function(){
+                $("font").after(" Questo testo è aggiunto con after, dopo il tag font.");
+            });
+            $("#btn11").click(function(){
+                $("ul").remove(); //rimuove l'elemento selezionato, cancellando l'elemento dall'HTML
+            });
+            $("#btn12").click(function(){
+                $("li").empty(); //svuota l'elemento selezionato del suo contenuto
+            });
+            $("#btn13").click(function(){
+                $("li").addClass("verde"); //aggiungiamo una classe all'elemento
+            }); 
+            $("#btn14").click(function(){
+                $("li").removeClass("verde"); // rimuovo una classe all'elemento
+            });
+            $("#btn15").click(function(){
+                $("li").toggleClass("verde"); //attivo e disattivo in alternanza la classe dell'elemento ad ogni click
+            });
+            $("#btn16").click(function(){
+                $("ul").css({
+                    "font-family": "arial",
+                    "color": "white",
+                    "list-style-type": "circle",
+                    "background-color": "black",
+                    "border": "2px dotted yellow"
+                });
+            });
+        });
+    </script>
+</body>
+</html>

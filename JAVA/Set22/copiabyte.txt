@@ -1,0 +1,1 @@
+Questo é un file di prova per la copia di byte con gli Stream di Java, scritto il 22/9/2022!

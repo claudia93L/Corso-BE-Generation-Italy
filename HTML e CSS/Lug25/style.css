@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+body {
+    background-color: #b0b0b0;
+    font-family: Helvetica, Verdana;
+}
+
+#container {
+    background-color: #fff; /* Sovrascrive la riga 4 */
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header {
+    background-color: #66ccff; /* Sovrascrive la riga 9 */
+    color: darkblue;
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+}
+
+#content {
+    padding: 10px;
+}
+
+#menu {
+    width: 180px;
+    float: left;
+}
+
+#menu ul { /* Seleziono esclusivamente l'elenco nel menù, se si parte dal classe o id, si inserisce lo spazio - oppure ul#menu , logica inversa*/
+    list-style: none; /* Rimozione punti dell'elenco puntato */
+    padding: 2px; /* Gestisco lo spazio lasciato vuoto dalla rimozione dei puntini */
+}
+
+#main {
+    width: 600px;
+    float: left;
+}
+
+#footer {
+    width: 800px;
+    height: 70px;
+    clear: both; /* Spezzo i float precedenti (pulisci a sinistra e a destra). Il div va a capo anche se avesse spazio per stare accanto ai precedenti */
+    background-color: #909090;
+    color: #fff;
+}
+
+#first {
+    width: 260px;
+    float: left;
+    text-align: left;
+    padding: 10px; /* I contenuti del div saranno distaccati dal suo bordo */
+}
+
+#second {
+    width: 240px;
+    float: left;
+    text-align: center;
+    padding: 26px 10px 10px 10px;
+}
+
+#third {
+    width: 240px; /* Devo tener conto dei padding laterali di tutti i div presenti nel footer */
+    float: left;
+    text-align: right;
+    padding: 10px;
+}
+
+img.social { /* Sto selezionando esplicitamente le immagini con classe social - oppure .social img */
+    width: 32px;
+    height: 32px;
+    margin-left: 5px;
+    margin-top: 10px; /* Per il centramento verticale */
+}
+
+a {
+    text-decoration: none; /* Rimozione decorazione dei link */
+}

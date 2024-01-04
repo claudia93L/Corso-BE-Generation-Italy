@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro scolastico</title>
+    <style>
+        table {
+            background-color: lightblue;
+            height: auto; 
+            min-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        th, td {
+            text-align: center;
+            min-width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- La pagina web deve:
+- chiedere all'utente/insegnante i nomi degli studenti e i relativi voti numerici conseguiti in un compito in classe;
+- "tradurre" la votazione numerica in un giudizio (per es.: 8 diventa Buono);
+- archiviare/salvare opportunamente i dati inseriti;
+- gestire un controllo per interrompere l'inserimento di nomi e voti (non sapendo a priori
+quanti studenti partecipano al compito in classe), da mostrare all'utente/insegnante
+all'apertura della pagina come "istruzione per l'uso" del programma;
+- stampare una tabella con il riepilogo di tutti i nomi e i giudizi. -->
+    <!-- PRIMO PUNTO-->
+    <table>
+        <tr>
+            <th>NOME</th>
+            <th>GIUDIZIO</th>
+        </tr>
+        <script>
+            let studenti = prompt("Quanti studenti sono?");
+
+            for(let i = 0; i < studenti; i++) {
+                let nome = prompt("Nome dello studente?")
+                let voto = Number(prompt("Qual è il voto conseguito da " + nome + "?"))
+
+                switch(voto) { //voto è l'argomento di switch
+                case 1:
+                case 2:
+                case 3:
+                case 4: 
+                case 5: 
+                    // istruzioni svolto se il voto ha valore da 1 a 5, se trova la corrispondenza entra altrimenti va oltre
+                    giudizio = "<font color='red'>Insufficiente</font>"; // se insufficiente voglio stamparlo in rosso
+                    break; // esco dallo switch perchè il voto corrispondente è stato trovato
+                case 6: 
+                    giudizio = "<font color='green'>Sufficiente</font>";
+                    break;
+                case 7: 
+                    giudizio = "<font color='green'>Discreto</font>";
+                    break;
+                case 8: 
+                    giudizio = "<font color='green'>Buono</font>";
+                    break;
+                case 9: 
+                    giudizio = "<font color='green'>Ottimo</font>";
+                    break;
+                case 10: 
+                    giudizio = "<font color='green'>Eccellente</font>";
+                    break;
+                default: //caso in cui il valore inserito non sia un voto che trova riscontro nei casi inseriti. il default va inserito per ultimo per sintassi 
+                    giudizio = "Non classificato - Errore";
+                    document.write("<font color='#000'>");
+                    break; // Inserito ma non è necessario
+
+                }
+                document.write("<tr><td border='2px darkblue'>" + nome + "</td><td>" + giudizio + "</td></tr>");
+            }
+
+        </script>
+    </table>
+</body>
+
+</html>

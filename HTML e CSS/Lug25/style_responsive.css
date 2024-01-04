@@ -1,0 +1,115 @@
+@charset "utf-8";
+
+/* Formattazione standard per desktop */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: darkblue;
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 16px;
+}
+
+#container {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#menu ul {
+    width: 100%;
+    list-style: none;
+    padding: 2px;
+    text-align: center;
+}
+
+/* Formatto le voci dell'elenco del menù */
+
+#menu ul li { 
+    display: inline; /* Posiziona le voci su linea orizzontale */
+    padding-right: 32px;
+    padding-left: 32px;
+}
+
+#sinistra {
+    width: 700px;
+    float: left;
+    background-color: lightseagreen;
+}
+
+#destra {
+    width: 260px;
+    float: right;
+    background-color: lightsalmon;
+}
+
+#logo {
+    display: block; /* Mostro l'oggetto come blocco che occupa tutta la riga della pagina */
+    width: 100%; /* Piena larghezza del suo contenitore */
+    height: auto;
+}
+
+#logo_icona {
+    display: none; /* Rendiamo non visibile nella visualizzazione desktop l'elemento sulla pagina */
+}
+
+/* Formattazione per schermo più piccolo con indicazione del breakpoint sotto i 990px. Il codice si attiva quando la condizione tra parentesi si verifica */
+
+@media only screen and (max-width: 990px){
+
+    #container {
+        width: 100%; 
+    }
+
+    #menu ul li {
+        padding-right: 2%; 
+        padding-left: 2%; 
+    }
+
+    #sinistra {
+        width: 70%; 
+    }
+
+    #destra {
+        width: 30%;
+    }
+}
+
+/* Formattazione per schermo più piccolo con indicazione del breakpoint sotto i 710px. Il codice si attiva quando la condizione tra parentesi si verifica */
+
+@media only screen and (max-width: 710px) {
+
+    body {
+        font-size: 16px;
+    }
+
+    #menu ul li {
+        display: block; /* Sovrascrive l'inline-block precedente e mette i link in verticale */
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+    #sinistra {
+        width: 100%; /* Possiamo tenere il float precedente, perchè essendo al 100% ne annulla l'effetto */
+    }
+
+    #destra {
+        width: 100%;
+    }
+
+    #logo {
+        display: none;
+    }
+
+    #logo_icona {
+        display: block;
+        width: 80%;
+        max-width: 300px; /* Limito che il logo occupi troppo spazio sullo smartphone quando usato in orizzontale */
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

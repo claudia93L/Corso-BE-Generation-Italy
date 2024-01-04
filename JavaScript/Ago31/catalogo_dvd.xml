@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<catalogo>
+    <dvd> 
+        <titolo>Guardie e ladri</titolo>
+        <regista>Mario Monicelli, Steno</regista>
+        <nazione>Commedia</nazione>
+        <genere>Commedia</genere>
+        <anno>1951</anno>
+        <durata>1:41</durata>
+    </dvd>
+    <dvd> 
+        <titolo>Snatch lo strappo</titolo>
+        <regista>Guy Ritchie</regista>
+        <nazione>Stati Uniti</nazione>
+        <genere>Commedia</genere>
+        <anno>2000</anno>
+        <durata>1:44</durata>
+    </dvd>
+    <dvd>
+        <titolo>Il padrino parte 1</titolo>
+        <regista>Francis Ford Coppola</regista>
+        <nazione>Stati Uniti</nazione>
+        <genere>Drammatico</genere>
+        <anno>1972</anno>
+        <durata>2:55</durata>
+    </dvd>
+    <dvd>
+        <titolo>Prey</titolo>
+        <regista>Dan Trachtenberg</regista>
+        <nazione>Stati Uniti</nazione>
+        <genere>Azione</genere>
+        <anno>2022</anno>
+        <durata>1:39</durata>
+    </dvd>
+    <dvd>
+        <titolo>Shutter Island</titolo>
+        <regista>Martin Scorsese</regista>
+        <nazione>Stati Uniti</nazione>
+        <genere>Thriller</genere>
+        <anno>2010</anno>
+        <durata>2:05</durata>
+    </dvd>
+</catalogo>

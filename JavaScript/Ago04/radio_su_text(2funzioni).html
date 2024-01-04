@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio button su input text - Due funzioni</title>
+    <style>
+        body {
+            background-color: #f0ff9a;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 14px;
+        }
+
+        .centro {
+            background-color: green;
+            border: 1px dashed blue;
+            width: 600px;
+            height: auto;
+            margin: 30px auto;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="centro">
+        <form action="#" method="post" name="modulo">
+            Seleziona il tuo operatore telefonico <br>
+            <input type="radio" name="operatore" value="tim" id="tim"> Tim <br>
+            <input type="radio" name="operatore" value="vodafone" id="vodafone"> Vodafone <br>
+            <input type="radio" name="operatore" value="windtre" id="windtre"> Wind-Tre <br>
+            <input type="radio" name="operatore" value="altro" id="altro"> Altro <input type="text" name="altroOperatore" disabled> <br>
+            <input type="submit" value="Registrati">
+        </form>
+    </div>
+    <script>
+        let numero = ""; // variabile globale dove salvare l'operatore inserito manualmente, per eventuali recuperi futuri
+        document.getElementById("altro").addEventListener("click", abilita); // evento sul quarto radiobutton, mi serve il suo id
+
+        function abilita() {
+            document.modulo.altroOperatore.disabled = false; // disabled = false, cioè input text abilitato
+            document.modulo.altroOperatore.focus(); // metodo focus() cursore sull'input text - il cursore per scrivere si sposta automaticamente sull'input text al click del button
+            document.modulo.altroOperatore.value = recupero; // se presente, riscrivo l'ultimo operatore inserito dall'utente
+        }
+
+        // qualunque dei primi tre radio button seleziono, l'input text deve tornare disabled
+        const tim = document.getElementById("tim");
+        const vodafone = document.getElementById("vodafone");
+        const windtre = document.getElementById("windtre");
+        [tim, vodafone, windtre].forEach(function(gestore) { // gestore è uno qualunque dei 3 operatori selezionati
+            gestore.addEventListener("click", disabilita);
+
+            function disabilita() {
+                recupero = document.modulo.altroOperatore.value; // salvo l'operatore inserito dall'utente
+                document.modulo.altroOperatore.disabled = true; // input text torna disabilitato
+                document.modulo.altroOperatore.value = ""; // svuoto l'input text
+            }
+        });
+
+    </script>
+</body>
+</html>

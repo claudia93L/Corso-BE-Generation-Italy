@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch - Voto scolastico</title>
+</head>
+<body>
+    <font size="5" face="Verdana">
+        <script>
+            let nome = prompt("Come si chiama lo studente?"); //chiedo il nome dello studente
+            let voto = Number(prompt("Qual è il voto conseguito da " + nome + "?")); // chiedo il voto dello studente
+            let giudizio;
+
+            // Switch è un costrutto di controlli multipli 
+
+            switch(voto) { //voto è l'argomento di switch
+                case 1:
+                case 2:
+                case 3:
+                case 4: 
+                case 5: 
+                    // istruzioni svolto se il voto ha valore da 1 a 5, se trova la corrispondenza entra altrimenti va oltre
+                    giudizio="Insufficiente";
+                    document.write("<font color='#f00'>"); // se insufficiente voglio stamparlo in rosso
+                    break; // esco dallo switch perchè il voto corrispondente è stato trovato
+                case 6: 
+                    giudizio = "Sufficiente";
+                    document.write("<font color='#0a0'>");
+                    break;
+                case 7: 
+                    giudizio = "Discreto";
+                    document.write("<font color='#0a0'>");
+                    break;
+                case 8: 
+                    giudizio = "Buono";
+                    document.write("<font color='#0a0'>");
+                    break;
+                case 9: 
+                    giudizio = "Ottimo";
+                    document.write("<font color='#0a0'>");
+                    break;
+                case 10: 
+                    giudizio = "Eccellente";
+                    document.write("<font color='#0a0'>");
+                    break;
+                default: //caso in cui il valore inserito non sia un voto che trova riscontro nei casi inseriti. il default va inserito per ultimo per sintassi 
+                    giudizio = "Non classificato - Errore";
+                    document.write("<font color='#000'>");
+                    break; // Inserito ma non è necessario
+            }
+
+            document.write("L'esito del compito svolto da " + nome + " è: " + giudizio);
+        </script>
+    </font> <!--i tag font interni si chiudono automaticamente alla fine-->
+</body>
+</html>

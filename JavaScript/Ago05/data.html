@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipolazione date</title>
+    <style>
+        #data {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="data"></div>
+    <script>
+        // creo una funzione che aggiunge lo zero davanti a numeri di una sola cifra
+        function zero(numero) {
+
+            if (numero < 10) {
+                numero = "0" + numero; // 9 diventa 09
+            }
+
+            return numero; // istruzione che termina la funzione, restituendo il valore richiesto e salvarlo nella variabile apposita
+        }
+
+        window.addEventListener("load", creaData); // "load" cioè al caricamento della pagina nella finestra del browser
+
+        function creaData() {
+            let data = new Date(); // istanza della classe Date() che contiene tutti i valori della data
+
+            // estrapolo e salvo i vari parametri della data
+            let giorno = zero(data.getDate()); // con getDate() prelevo il giorno del mese, con zero() aggiungo l'eventuale 0 davanti
+            // è come se fosse let giorno = return numero di riga 24
+
+            let mese = zero(data.getMonth()+1); // i mesi partono da 0, quindi aggiungiamo 1 
+            // è come avere il numero aggiornato, salvato dentro mese
+
+            let anno = data.getFullYear(); // anno a 4 cifre
+
+            let ore = zero(data.getHours());
+            let minuti = zero(data.getMinutes());
+            let secondi = zero(data.getSeconds());
+
+            // stampo calendario e orologio dentro il div data
+            document.getElementById("data").innerHTML = giorno + "/" + mese + "/" + anno + " - " + ore + ":" + minuti + ":" + secondi;
+            setTimeout("creaData()", 1000); // ogni secondo (indicato in millisecondi) la funzione viene rieseguita e si aggiornano gli eventuali nuovi parametri
+        }
+    </script>
+</body>
+</html>

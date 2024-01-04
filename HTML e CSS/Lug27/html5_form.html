@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Moduli di HTML5</title>
+</head>
+<body>
+    <form id="form1" name="1" method="post" action="">
+        <table width="600" border="0" cellspacing="0" cellpadding="3">
+            <tbody>
+                <tr>
+                    <td width="144">Colore</td>
+                    <td width="444"><input type="color" name="colore"
+                        id="colore"></td>
+                </tr>
+                <tr>
+                    <td>Range</td>
+                    <td>0<input type="range" name="intervallo" id="range" min="0" max="10" value="5" step="1">10</td> <!-- Il valore minimo e massimo sono i valori estremi dell'intervallo, il valore è quello preimpostato e lo step è il numero di passi tra due valori selezionabili spostando il selettore -->
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td><input type="url" name="sito" id="url" placeholder="Scrivi l'url del tuo sito web"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" name="indirizzoPosta" id="email" placeholder="Scrivi la tua email" required></td>
+                </tr>
+            </tbody>
+            <tr>
+                <td>Telefono</td>
+                <td><input type="tel" name="telefono" id="tel" placeholder="Scrivi il tuo numero di telefono"></td>
+            </tr>
+            <tr>
+                <td>Search</td>
+                <td><input type="search" name="ricerca" id="search" placeholder="Fai la tua ricerca"></td> <!-- Ricerca avviata tramite il pulsante in fondo -->
+            </tr>
+            <tr>
+                <td>Numero</td>
+                <td><input type="number" name="annoNascita" id="number" min="1970" max="2010" step="1" value="1990" required></td>
+            </tr>
+            <tr>
+                <td>Image Button</td>
+                <td><input type="image" name="youtube" id="image" src="/Lug25/img/twitter_logo.png"></td>
+            </tr>
+            <tr>
+                <td>Set di campi</td>
+                <td>
+                    <fieldset>
+                        <legend>Dati anagrafici</legend>
+                        <p>Nome: <input type="text" name="nome" class="testo" size="15"></p>
+                        <p>Cognome: <input type="text" name="cognome" class="testo" size="15"></p>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" name="invio" class="pulsante" value="Invia" required>
+                    <input type="reset" name="cancella" class="pulsante" value="Cancella" required>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventi jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <h2>Paragrafo 1</h2>
+    <p id="par1" class="light">Lorem ipsum...</p>
+    <h2>Paragrafo 2</h2>
+    <p id="par2">Lorem ipsum...</p>
+    <h2>Paragrafo 3</h2>
+    <p id="par3" class="light">Lorem ipsum...</p>
+    <input type="text" placeholder="Inserisci testo">
+    <button id="nascondi">Clicca per nascondere</button>
+    <button id="mostra">Clicca per mostrare</button>
+    <script>
+        $(document).ready(function(){
+            /* $("button").click(function(){
+                alert("Hai cliccato sul button");
+            }); */
+            /* $("h2").dblclick(function(){
+                alert("Hai cliccato due volte su un titolo");
+            }); */
+            /* $(".light").mouseenter(function(){
+                alert("Sei passato su un elemento con classe \"light\"");
+            });  */
+            let input = $("input");
+            input.focus(function(){
+                $(this).css("background-color", "yellow"); // this interviene sullo stesso elemento in cui si è manifestato l'evento
+                // con .css diamo lo stile css associato all'evento
+            }); 
+            input.blur(function(){
+                $(this).css("background-color", "white"); // il colore di sfondo cambia alla rimozione della selezione, cliccando aldifuori dell'input
+            });
+
+            let bgc = "background-color";
+            $("p").on({ // creiamo un evento, on, su varie fasi cambiando lo sfondo del paragrafo a seconda del mouse che entra, che esce e al click
+                mouseenter: function(){
+                    $(this).css(bgc, "cyan"); //grazie a this, l'effetto si attiva solo quando si è sopra uno specifico paragrafo. Per farlo attivare simultaneamente su tutti gli elementi, si dovrebbe inserire "p"
+                },
+                mouseleave: function(){
+                    $(this).css(bgc, "white");
+                },
+                click: function(){
+                    $(this).css(bgc, "pink");
+                } // attenzione, non occorrono virgola nè punto e virgola
+            });
+
+            $("#nascondi").click(function(){ // programmo il pulsante nascondi per nascondere al click tutti i paragrafi
+                    $("p").hide();
+                });
+
+            $("#mostra").click(function(){ // programmo il pulsante mostra per mostrare al click tutti i paragrafi
+                $("p").show();
+            });
+        });
+    </script>
+</body>
+</html>

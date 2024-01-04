@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Array - Contenitore di elementi</title>
+</head>
+<body>
+    <script>
+        let nomi1 = ["Mario", "Pippo", "Fabio", "Francesco"]; // prima sintassi per scrivere un array
+        let nomi2 = new Array("Mario", "Pippo", "Fabio", "Francesco"); // seconda sintassi per scrivere un array
+
+        // simulazione di lotteria
+        let casuale = Math.floor(Math.random()*4); // sorteggio un numero intero casuale tra 0 incluso e 4 escluso, quindi 3
+        document.write("Il fortunato vincitore è " + nomi1[casuale] + ", la " + (casuale + 1) + "° persona dell'array<br/>");  // invoco l'array con il numero e gli impongo l'estrazione casuale
+        // c'è sempre uno sfasamento di 1 nella posizione numerica degli elementi degli array, per questo si aggiunge il +1 per dargli la posizione corretta
+
+        let elementi = nomi2.length; // recupero la lunghezza dell'array con la proprietà length, che non richiede parentesi non essendo un metodo
+
+        for (let x = 0; x <= elementi - 1; x++) { // il - 1 per riportare la situazione delle posizioni corretta rispetto al +1 necessario per l'array
+        // il for nasce per gestire gli array
+            document.write(nomi2[x] + "<br/>"); // stiamo stampando la lista delle persone che hanno partecipato all'estrazione
+        }
+
+        nomi1.push("Salvatore"); // aggiungiamo il nome alla lista di nomi dell'array 1
+        document.write("<br/>" + nomi1[nomi1.length-1]); // stampa dell'ultimo elemento dell'array - si chiama l'array, si misura la sua lunghezza e si sottrae 1, perchè Salvatore sarà il quinto elemento, ma in posizione 4
+    </script>
+</body>
+</html>

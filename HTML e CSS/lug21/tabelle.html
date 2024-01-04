@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Tabelle</title>
+    </head>
+    <body bgcolor="black" style="color:white">
+
+        <!-- Tabella centrata con vari attributi di personalizzazione -->
+
+        <table width="900" align="center" border="2" cellpadding="3" cellspacing="2" bgcolor="303030">
+            <caption>Lista film famosi</caption>
+            <thead>
+                <tr bgcolor="f0f0f0" style="color:black">
+                    <th width="15%">Titolo</th>
+                    <th width="15%">Genere</th>
+                    <th width="15%">Regista</th>
+                    <th width="10%">Anno</th>
+                    <th width="10%">Durata</th>
+                    <th width="15%">Locandina</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td valign="middle" align="left"><b>Doctor Strange nel Multiverso della Follia</b></td>
+                    <!--Utilizzo rowspan per unire le righe, e rimuovo il genere nella seconda riga, perchè sono in comune tra i due film-->
+                    <td valign="middle" align="center" rowspan="2">Azione/Avventura</td>
+                    <td valign="middle" align="center">Sam Reimi</td>
+                    <td valign="middle" align="center">2022</td>
+                    <td valign="middle" align="center">2 ore e 6</td>
+                    <td valign="middle" align="center"><img src="https://static.wikia.nocookie.net/marveldatabase/images/4/40/Doctor_Strange_in_the_Multiverse_of_Madness_Italy_Poster.webp/revision/latest?cb=20220410084534" width="120" height="auto" alt="Locandina Doctor Strange nel Multiverso della Follia"></td>
+                </tr>
+                <tr>
+                    <td valign="middle" align="left"><b>Spider Man: No Way Home</b></td>
+                    <td valign="middle" align="center">Jon Watts</td>
+                    <td valign="middle" align="center">2021</td>
+                    <td valign="middle" align="center">2 ore e 28</td>
+                    <td valign="middle" align="center"><img src="https://mr.comingsoon.it/imgdb/locandine/big/59121.jpg" width="120" height="auto" alt="Locandina Spider Man: No Way Home"></td>
+                </tr>
+            </tbody>
+            <tfoot bgcolor="f0f0f0">
+                <tr> 
+                    <td colspan="6" valign="middle" align="center"><a href="immagini_e_link.html">Guarda i film</a></td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trova il keyCode</title>
+    <script>
+        document.addEventListener("keydown", logKey); // sto collegando l'evento direttamente alla pagina web. Alla pressione di un tasto, lancia la funzione logKey()
+
+        function logKey(e) {
+            alert("Keycode del tasto premuto: " + e.keyCode); //keyCode è il codice del tasto che posso usare per programmarlo
+        }
+    </script>
+</head>
+<body>
+    <div>Premi un tasto, e ti dirò il suo keyCode!</div>
+</body>
+</html>

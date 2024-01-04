@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle - Prelevare porzioni di immagine con JS</title>
+    <style>
+        .auto { /* tessera del puzzle */
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-image: url("cat.jpeg");
+        }
+
+        #start { /* riquadro iniziale dell'immagine */
+            width: 600px;
+            height: 600px;
+            float: left;
+            background-image: url("cat.jpeg");
+        }
+
+        #cont { /* riquadro con le tessere mescolate */
+            width: 600px;
+            height: 600px;
+            float: left;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="start"></div>
+    <div id="cont">
+        <div class="auto"></div>
+        <div class="auto"></div>
+        <div class="auto"></div>
+        <div class="auto"></div>
+        <div class="auto"></div>
+        <div class="auto"></div>
+        <div class="auto"></div>
+        <div class="auto"></div>
+        <div class="auto"></div>
+    </div>
+    <div style="clear:both;"><button id="clicca">Clicca qui</button></div> <!-- clear:both resetta i float -->
+
+    <script>
+        let posizione = new Array(); // creo un array, inizialmente vuoto, contenente le coordinate degli angoli top-left degli auto
+        posizione[0] = "0px 0px"; // attribuisco le coordinate della posizione degli elementi dell'array. Sto mappando gli spigoli in alto a sinistra degli elementi che contengono cont
+        posizione[1] = "0px 200px";
+        posizione[2] = "0px 400px";
+        posizione[3] = "200px 0px";
+        posizione[4] = "200px 200px";
+        posizione[5] = "200px 400px";
+        posizione[6] = "400px 0px";
+        posizione[7] = "400px 200px";
+        posizione[8] = "400px 400px";
+        document.getElementById("clicca").addEventListener("click", mescola); // programmiamo il bottone per attivare l'evento click per attivare la funzione mescola - agganciamo un evento all'elemento e una coppia di parametri
+
+        function mescola() {
+            document.getElementById("start").style.display = "none"; // nascondo il div start con la foto intera del gatto
+            document.getElementById("cont").style.display = "block"; // mostro il div con con le tessere del puzzle
+            let elemento = document.getElementById("cont").getElementsByTagName("div"); // l'elemento è un array dei div presenti in cont
+            let numeri = new Array(); // array in cui caricherò le posizioni casuali delle tessere
+            let i = 0, num;
+
+            while (i < 9) {
+                let n = Math.floor(Math.random()*9); // sorteggio una tessera a caso
+                let r = numeri.indexOf(n); // cerco il numero della tessera sorteggiata nell'array delle posizioni già uscite
+                // indexOf() restituisce l'indice del valore trovato oppure -1 se non è presente (quindi la tessera non era già uscita)
+
+                if (r < 0) { // se il numero della tessera non era già uscito...
+                    numeri.push(n); // lo aggiungo all'array delle posizioni uscite
+                    i++; // incremento i perchè ho trovato un'altra tessera
+                }
+            }
+
+            for (i = 0; i < 9; i++) {
+                num = numeri[i]; // in corrispondenza di ogni i progressiva (da 0 a 9) prelevo il numero n casuale uscito nel while
+                elemento[i].style.backgroundPosition = posizione[num];
+                // elemento[i] è un div auto, contenente già cat.jpeg (riga 13), il parametro CSS su cui agisco definisce la posizione da cui iniziare a vedere lo sfondo (la foto del gatto) nel div auto in questione
+
+            }
+        }
+    </script>
+</body>
+</html>

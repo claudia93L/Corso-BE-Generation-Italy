@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Importa XML</title>
+
+    <style>
+        #mostraDVD {
+            border: 2px solid gray;
+            padding: 5px;
+            background-color: black;
+            color: gray;
+        }
+
+        table, th, td {
+            border: 2px solid black;
+            border-collapse: collapse; /* nasconde il bordo se la tabella è vuota */
+        }
+
+        th, td {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Collezione DVD</h2>
+    <p>Clicca su un titolo per vederne i dettagli</p>
+    <div id="mostraDVD"></div>
+    <table id="tabella"></table>
+
+    <script>
+
+        const xhttp = new XMLHttpRequest();
+        let dvd;
+
+        xhttp.onload = function(){
+            const xmlDoc = xhttp.responseXML;
+            dvd = xmlDoc.getElementsByTagName("dvd");
+            loadDVD();
+        }
+
+        xhttp.open("GET", "catalogo_dvd.xml", true);
+        xhttp.send();
+
+        function loadDVD(){
+            let tabella = "<tr><th>Titolo</th></tr>";
+
+            for (let i = 0; i < dvd.length; i++) {
+                tabella += "<tr><td id='" + i + "'>";
+                tabella += dvd[i].getElementsByTagName("titolo")[0].childNodes[0].nodeValue; // scrivo il titolo del film nella cella
+                tabella += "</td></tr>";
+                }
+
+                document.getElementById("tabella").innerHTML = tabella;
+
+            // occorre un nuovo contatore: i è bloccata sull'ultimo valore del for, finchè non si svolgono open() e send() di xhttp
+            // occorre inoltre una funzione anonima per invocare mostra(i) passando j
+
+            for(let j = 0; j < dvd.length; j++){
+                document.getElementById(j).addEventListener("click", function(){ // lanciamo una function anonima, perchè gli passeremo il parametro
+                    mostra(j);
+                });
+            }
+        }
+
+        function mostra(i) {
+            document.getElementById("mostraDVD").style.display = "block"; // rendo visibile il div con i dati dei film
+            document.getElementById("mostraDVD").innerHTML = "Titolo: " +
+            dvd[i].getElementsByTagName("titolo")[0].childNodes[0].nodeValue + "<br />Regista: " +
+            dvd[i].getElementsByTagName("regista")[0].childNodes[0].nodeValue + "<br />Nazione: " +
+            dvd[i].getElementsByTagName("nazione")[0].childNodes[0].nodeValue + "<br />Genere: " +
+            dvd[i].getElementsByTagName("genere")[0].childNodes[0].nodeValue + "<br />Anno: " +
+            dvd[i].getElementsByTagName("anno")[0].childNodes[0].nodeValue + "<br />Durata: " +
+            dvd[i].getElementsByTagName("durata")[0].childNodes[0].nodeValue;
+            }
+
+    </script>
+
+</body>
+</html>

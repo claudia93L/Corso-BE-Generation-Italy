@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner pubblicitari a rotazione</title>
+</head>
+<body>
+    <script>
+        let banner = ["banner1.jpeg", "banner2.jpeg", "banner3.jpeg"]; // assegnazione valori all'array, nomi delle immagini
+        let link = ["https://www.ucreative.com/articles/the-best-of-you-the-designer-2012/attachment/banner-600x240/", "https://www.trucknews.com/microsite/crunch-time/attachment/crunch-time-newsletter-banner-600x240-1/", 
+        "https://www.pinterest.it/pin/kalpa-photos-images-assets--671177150706933901/" ]; // array con i link in corrispondenza dei loro banner
+        let casuale = Math.floor(Math.random()*3); // da 0 a 2 (3 escluso)
+        document.write("<a href='" + link[casuale] + "' target='_blank'/>"); // apro tag link sul vaore casuale
+        document.write("<img src='" + banner[casuale] + "' />"); // si usano gli apici ' ' per i tag html perchè le virgolette sono in uso nella variabile. Si deve sempre chiudere il tag aperto 
+        // collego il banner del link sul valore casuale
+        document.write("</a>"); // chiudo il tag a
+    </script>
+</body>
+</html>

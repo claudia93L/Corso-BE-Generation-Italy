@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+.colonna1_tab {
+    padding-right: 40px;
+    font-weight: 600;
+}
+
+body {
+    background-image: url(background.jpeg);
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: 100%;
+}
+
+.container {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+}
+
+td { 
+    padding-bottom: 10px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+}

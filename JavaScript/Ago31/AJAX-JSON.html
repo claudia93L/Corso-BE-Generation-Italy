@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Importa JSON</title>
+    <style>
+        #main {
+            font-family: Verdana;
+            line-height: 1.5;
+        }
+
+        a {
+            color: darkblue;
+            text-decoration: none;
+        }
+
+        a:hover{
+            color:brown;
+            font-weight: bold;
+        }
+    </style>
+    <base target="_blank"/> <!-- Tutti i link si aprono in un'altra scheda -->
+</head>
+<body>
+    <div id="main"></div>
+    <script>
+
+        const xhttp = new XMLHttpRequest();
+        const url = "sitiPreferiti.json";
+
+        xhttp.onreadystatechange = function(){ // al cambiare di una proprietà...
+
+            if(this.readyState == 4 && this.status == 200){ // controlli predefiniti: se c'è segnale e se il sito è disponibile
+                let myArr = JSON.parse(this.responseText); // array che si collega al file JSON e ne preleva i contenuti
+                myFunction(myArr); // invoco la funzione sull'array appena creato(che ora rappresenta il file JSON)
+            }
+        };
+
+        xhttp.open("GET", url, true);
+        xhttp.send();
+
+        function myFunction(arr){ //arr è myArr, all'interno della funzione
+            let output = "", i;
+
+            for(i = 0; i < arr.length; i++){
+                // url è l'etichetta del file JSON, non la costante di rigo 28
+                output += "<a href='" + arr[i].url + "'>" + arr[i].display + "</a><br/>"; 
+            }
+
+            document.getElementById("main").innerHTML = output;
+        }
+
+    </script>
+</body>
+</html>

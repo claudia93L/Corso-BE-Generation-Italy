@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio button su input text - Una funzione</title>
+    <style>
+        body {
+            background-color: #f0ff9a;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 14px;
+            color: aliceblue;
+        }
+
+        .centro {
+            background-color: green;
+            border: 1px dashed blue;
+            width: 600px;
+            height: auto;
+            margin: 30px auto;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="centro">
+        <form action="#" method="post" name="modulo">
+            Seleziona il tuo operatore telefonico <br>
+            <input type="radio" name="operatore" value="tim" id="tim"> Tim <br>
+            <input type="radio" name="operatore" value="vodafone" id="vodafone"> Vodafone <br>
+            <input type="radio" name="operatore" value="windtre" id="windtre"> Wind-Tre <br>
+            <input type="radio" name="operatore" value="altro" id="altro"> Altro <input type="text" name="altroOperatore" disabled> <br>
+            <p>
+                <input type="checkbox" name="consenso" id="consenso" value="ok" checked> Acconsento al trattamento dei dati personali
+            </p>
+            <input type="button" value="Registrati" id="pulsante" name="pulsante"> <!-- type=button perchè lo dobbiamo programmare, nonostante non cambi nulla perchè lo si aggancia tramite l'id-->
+        </form>
+    </div>
+
+    <script>
+        let operatore = false;
+        let recupero = "";
+        const tim = document.getElementById("tim");
+        const vodafone = document.getElementById("vodafone");
+        const windtre = document.getElementById("windtre");
+        const altro = document.getElementById("altro");
+        [tim, vodafone, windtre, altro].forEach(function(gestore) {
+            gestore.addEventListener("click", scelta);
+
+            function scelta() {
+                operatore = true;
+                let val = 0;
+
+                for (let i = 0; i < document.modulo.operatore.length; i++) { // scansiono la famiglia di radio button "operatore"
+                    if (document.modulo.operatore[i].checked == true) { // se l'i-esimo operatore è checked...
+                        val = document.modulo.operatore[i].value; // ...salvo il value in val
+
+                        if(val == "altro") { // se è stato selezionato il radio button correlato con input text...
+                            document.modulo.altroOperatore.disabled = false; // ...input text abilitato
+                            document.modulo.altroOperatore.focus(); // cursore su input text
+                            document.modulo.altroOperatore.value = recupero; // se presente, riscrivo l'ultimo operatore inserito dall'utente
+
+                        } else { // se è stato selezionato un altro radio button...
+                            recupero = document.modulo.altroOperatore.value; // salvo l'operatore inserito dall'utente
+                            document.modulo.altroOperatore.disabled = true; // input text torna disabilitato
+                            document.modulo.altroOperatore.value = ""; // svuoto l'input text
+
+                        }
+                    }
+                }
+            }
+        });
+
+        document.getElementById("consenso").addEventListener("click", privacy);
+
+        function privacy() {
+
+            if (document.modulo.consenso.checked == false) { // se la checkbox è deselezionata...
+                document.modulo.pulsante.disabled = true; // ...il pulsante di registrazione viene disabilitato
+                alert("Se non accetti il trattamento dei dati personali non puoi registrarti");
+            } else { // se la checkbox è selezionata...
+                document.modulo.pulsante.disabled = false; // ...il pulsante di registrazione viene abilitato
+            }
+        }
+        
+        document.getElementById("pulsante").addEventListener("click", verifica);
+
+        function verifica() { // una funzione verifica agganciata al button submit, è ciò che si utilizza per assicurarsi che tutti i campi del form siano stati compilati
+
+            if (operatore == false) { // variabile che parte false, e diventa true selezionando uno degli operatori
+                alert("Attenzione! Non hai scelto un operatore!");
+            } else if (document.modulo.operatore.value == "altro" && document.modulo.altroOperatore.value == "") { // verifica che non ci si possa registrare se la casella "altro" non è stata compilata
+                alert("Attenzione! Non hai indicato un operatore alternativo"); {
+                }
+                document.modulo.submit(); // analogo a <input type="submit"/> senza una finzione 
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=+, initial-scale=1.0"/>
+    <title>Importa documento</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <button id="btn1">Documento1</button> <button id="btn2">Documento2</button>
+        <button id="btn3">Documento3</button> <button id="btn4">Documento4</button>
+        <hr/>
+        <div id="qui">Seleziona il documento da visualizzare</div>
+        <hr/>
+        Per la presenza di un comando AJAX, questa pagina va lanciata da Go Live e non da Esegui. <br/>
+
+        <script>
+
+            $(document).ready(function(){
+                $("#btn1").click(function(){
+                    $("#qui").load("Documento1.html #target"); // target serve per caricare un determinato id del documento
+                });
+                $("#btn2").click(function(){
+                    $("#qui").load("Documento2.html #target"); 
+                });
+                $("#btn3").click(function(){
+                    $("#qui").load("Documento3.html #target"); 
+                });
+                $("#btn4").click(function(){
+                    $("#qui").load("Documento4.html #target"); 
+                });;
+            });
+
+        </script>
+    
+    </div>
+</body>
+</html>

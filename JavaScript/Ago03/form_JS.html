@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form e JavaScript</title>
+</head>
+
+<body>
+    <form method="post" id="moduloweb" name="modulo">
+        <p>Seleziona il sito che vuoi visitare: <select name="sito" id="scegliSito">
+                <option selected disabled>Selezionare</option>
+                <option disabled>---</option>
+                <option value="https://studiotecnico75.altervista.org">Studio Tecnico 75</option>
+                <option value="https://www.accademiadellevante.org">Accademia del Levante</option>
+                <option value="https://www.animali75.blogspot.com">Amici Animali</option>
+            </select></p>
+        <table width="400" cellpadding="2">
+            <tr>
+                <td width="40%">Nome</td>
+                <td width="60%"><input type="text" name="nome" id="nome" size="20"></td>
+            </tr>
+            <tr>
+                <td>Cognome</td>
+                <td><input type="text" name="cognome" id="cognome" size="20"></td>
+            </tr>
+            <tr>
+                <td>Genere</td>
+                <td><input type="radio" name="genere" id="radiom" value="o"> Uomo <br>
+                    <input type="radio" name="genere" id="radiof" value="a"> Donna <br>
+                    <input type="radio" name="genere" id="radiox" value="*"> Altro <br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <!-- Dato che sono in un form, devo usare <input type="button" /> e non <button> perchè il bottone va programmato-->
+                    <input type="button" id="bottone" name="pulsante" value="Salutami" disabled>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <iframe name="prova" width="700" height="400"></iframe>
+    <script>
+        document.getElementById("scegliSito").addEventListener("change", apri); // l'evento sui select è generalmente change - si cambia la voce che si sta selezionando. Per associare gli eventi, usiamo gli ID
+
+        function apri() { // per associare le funzioni evento ai form si utilizzano i value
+            let url = document.modulo.sito.value; // salvo il "value" del select "sito" del form "modulo" del "document" corrente
+            window.open(url, "prova"); // apro l'url nell'elemento "prova" (l'iframe)
+        }
+
+        const uomo = document.getElementById("radiom"); // riga 29
+        const donna = document.getElementById("radiof"); // riga 30
+        const altro = document.getElementById("radiox"); // riga 31
+
+        // creo un array anonimo degli id dei radio button
+        // assegno all'array il metodo forEach()
+        // forEach() svolge il proprio argomento per ogni array alla sua sinistra
+        // persona è l'elemento scelto dall'utente tra uomo, donna, altro, cui corrispondono gli id dei radio button
+        // Ciascuno dei 3 argomenti, se selezionati, dovrà fare ciò che segue
+        [uomo, donna, altro].forEach(function(persona) { 
+            persona.addEventListener("click", abilita);
+
+                function abilita() {
+                // quando seleziono il mio genere, si abilita il pulsante per farmi salutare
+                document.modulo.pulsante.disabled = false; // rendo falsa la disabilitazione del button "pulsante" del form "modulo"
+                // si naviga così dentro ai form "document.modulo.pulsante.disabled"
+            }
+        });
+
+        // programmo il pulsante dopo averlo sbloccato
+        document.getElementById("bottone").addEventListener("click", saluta); // l'evento sui button è generalmente click
+
+        function saluta() {
+            // recupero dei dati dell'utente tramite i "name" dei controlli del form
+            let nome = document.modulo.nome.value; // salvo il "value" dell'input "nome" del form modulo - riga 21
+            let cognome = document.modulo.cognome.value; // salvo il "value" dell'input "cognome" del form modulo - riga 25
+
+            if (nome.length > 2 && cognome.length > 2) { // controllo la lunghezza minima di nome e cognome
+                alert("Benvenut" + document.modulo.genere.value + " nel nostro sito, " + nome + " " + cognome); // recupero il value del radio button scelto per scrivere il saluto personalizzato in base al genere scelto
+            } else {
+                alert("Il nome o il cognome inseriti sono troppo corti e non possono essere accettati! Controllare, grazie.");
+            }
+        }
+    </script>
+</body>
+
+</html>

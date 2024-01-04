@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prima pagina JavaScript</title>
+</head>
+<body>
+    <strong>
+        <script> /* Tutto ciò che si trova dentro il tag script è codice JS */
+            let messaggio; /* let: dichiaro una variabile */
+            messaggio = "Buongiorno a tutti!"; /* Salvo 'Buongiorno a tutti!' nella variabile messaggio */
+            document.write("Hello World! (JavaScript) "); /* write scrive nel punto della pagina in cui è invocato il contenuto scritto tra parentesi */
+            document.write(messaggio); /* Per invocare il valore della variabile, si scrive il nome della stessa senza virgolette */
+            document.write(" "); /* Stampo uno spazio */
+            messaggio = 12345; /* Sovrascrivo il valore della variabile messaggio. I numeri si inseriscono senza virgolette, per eventuali calcoli aritmetici */
+            document.write(messaggio);
+        </script> Hello World! (HTML)
+    </strong> <br/>
+    <!-- Alternativa con concatenazione di stringhe -->
+    <script>
+        messaggio = "Buonasera a tutti!"; /* Assegnamo un nuovo valore alla variabile messaggio, già dichiarata nello script precedente */
+        document.write("Hello World! (JavaScript)" + " " + messaggio); /* Concateniamo più stringhe con il simbolo + */
+    </script>
+</body>
+</html>

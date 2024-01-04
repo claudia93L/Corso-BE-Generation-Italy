@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipolazione stringhe</title>
+    <style>
+
+        input {
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="#" name="modulo" method="post">
+        Nome: <input type="text" name="nome"><br/>
+        Cognome: <input type="text" name="cognome"><br/>
+        Messaggio: <textarea name="messaggio" cols="30" rows="10"></textarea><br>
+        Email: <input type="text" name="email"><br/>
+        <input type="button" value="Clicca qui" id="pulsante">
+    </form>
+    <div id="contenuto"></div>
+    <script>
+        document.getElementById("pulsante").addEventListener("click", controllo);
+
+        function controllo(){
+            const moderabili = ["stupido", "deficiente", "sciocco", "decerebrato"]; // parole da censurare
+            const moderate = ["bravo", "intelligente", "saggio", "brillante"]; // parole sostitutive
+            let carNome = document.modulo.nome.value.length; // recupero la lunghezza del nome (pagina web, nome form, name input, lunghezza del value inserito)
+            let carCognome = document.modulo.cognome.value.length;
+            let testo = "Benvenuto nel nostro sito, " + document.modulo.nome.value + " " + document.modulo.cognome.value + "; Il tuo nome è composto da " + carNome + " caratteri, e il tuo cognome da " + carCognome + " caratteri,";
+            let messaggioIniziale = document.modulo.messaggio.value; // recupero il messaggio originale dell'utente
+            let messaggio = messaggioIniziale; // dato che voglio far sapere all'utente se il suo messaggio è stato modificato, lo duplico
+
+            for(let i = 0; i < moderabili.length; i++){ // scrivo un ciclo per controllare il messaggio alla ricerca delle parole da censurare
+                messaggio = messaggio.split(moderabili[i]).join(moderate[i]); // con split spezzo il messaggio con la parola da censurare, ed utilizzo join per ricomporlo con la parola sostitutiva
+            }
+
+            testo += "<br/>Il messaggio da te inviato è: " + messaggio; // processato modificato dal ciclo for, non quello iniziale
+
+            if(messaggio == messaggioIniziale){
+                testo += "<br>" + "testo originale".toUpperCase(); // converto il testo in maiuscolo 
+            } else {
+                testo += "<br>" + "testo moderato".toUpperCase()
+            }
+
+            document.getElementById("contenuto").innerHTML = testo; // stampo il contenuto della variabile testo del div #contenuto
+
+            if(document.modulo.email.value.indexOf("@") == -1){ // se non troverà la @ nell'indirizzo email, partirà il codice sottostante
+                alert("Attenzione, l'indirizzo email fornito non risulta valido. Controllare, grazie!");
+            }
+        }
+    </script>
+</body>
+</html>

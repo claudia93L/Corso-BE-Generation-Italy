@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Primo Form</title>
+</head>
+<body>
+    <form method="post" action="mailto:spichcla@gmail.com" enctype="multipart/form-data" name="form1" id="form1">
+        <table width="600" cellspacing="0" cellpadding="3">
+            <tbody>
+                <tr>
+                    <!-- I width tengono conto del cellpadding della table -->
+                    <td width="144">Nome</td>
+                    <td width="444"><input type="text" name="nome" class="testo" placeholder="Scrivi il tuo nome" required></td>
+                </tr>
+                <tr>
+                    <td>Cognome</td>
+                    <td><input type="text" name=""cognome class="testo" placeholder="Scrivi il tuo cognome" required></td>
+                </tr>
+                <tr>
+                    <td>Genere</td>
+                    <td><input type="radio" name="genere" class="radio" value="F">Donna <br/> <!-- Radio buttons dà la possibilità di selezionare un valore specifico di quelli proposti e invia il valore attribuito al server-->
+                    <input type="radio" name="genere" class="radio" value="M">Uomo <br/>
+                    <input type="radio" name="genere" class="radio" value="X" checked>Altro</td>    <!-- Con checked abbiamo preselezionato l'opzione del form -->
+                </tr>
+                <tr>
+                    <td>Interessi</td>
+                    <td><input type="checkbox" name="cinema" class="check" value="ok">Cinema<br/> <!-- Selezionando l'opzione, si invia il value sul name cinema-->
+                        <input type="checkbox" name="musica" class="check" value="ok">Musica<br/>
+                        <input type="checkbox" name="anime" class="check" value="ok">Anime<br/>
+                        <input type="checkbox" name="manga" class="check" value="ok">Manga<br/>
+                        <input type="checkbox" name="libri" class="check" value="ok">Libri<br/>
+                        <input type="checkbox" name="fotografia" class="check" value="ok">Fotografia
+                    </td>
+                </tr>
+                <tr>
+                    <td>Provincia</td>
+                    <td>
+                        <select name="provincia" class="select" required>
+                            <option selected="selected" value="" hidden>Seleziona la tua provincia</option> <!-- Opzione preselezionata con "selected" e con hidden, non è selezionabile-->
+                            <option value="CA">Cagliari</option> <!-- L'utente legge Cagliari, al programma arriva CA-->
+                            <option value="SS">Sassari</option>
+                            <option value="SU">Sud Sardegna</option>
+                            <option value="BA">Bari</option>
+                            <option value="BR">Brindisi</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Username</td>
+                    <td><input type="text" name="username" class="testo" placeholder="Scrivi il tuo username" required></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" name="password" class="testo" placeholder="Scrivi la tua password" required></td>
+                </tr>
+                <tr>
+                    <td>Messaggio per lo staff</td>
+                    <td><textarea name="messaggio" cols="40" rows="10" placeholder="Scrivi il tuo messaggio"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Allega il tuo curriculum</td>
+                    <!-- Funziona grazie a enctype="multipart/form-data" impostato ad inizio form -->
+                    <td><input type="file" name="curriculum" class="file" required></td>
+                </tr>
+                <tr>
+                    <td>&nbsp</td> <!-- Carattere di spazio -->
+                    <td><input type="button" name="button" class="button" value="Invia (button) " /> <!-- () Pulsante da programmare*-->
+                        <input type="submit" name="submit" class="submit" value="Invia (submit)" /> <!-- () Pulsante da programmare*-->
+                        <input type="reset" name="reset" class="reset" value="Ripristina" />
+                        <!-- Per controllare la validità dei vari input immessi, nonchè l'allegato, occorre programmare il button prima he effettui l'operazione di send(), che avviene direttamente con submit -->
+                    </td> 
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>

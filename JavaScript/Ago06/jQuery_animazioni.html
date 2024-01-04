@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animazioni jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        div {
+            background-color:gold;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h2>Animazioni con jQuery</h2>
+    <p>Questo codice mostra come sia possibile applicare più effetti allo stesso elemento!</p>
+    <p id="slide">Questo codice mostra l'animazione slide toggle!</p>
+    <button>Clicca</button>
+    <div></div>
+    <script>
+        $(document).ready(function(){
+            
+            $("button").click(function(){
+                $("div").animate({ // al click del bottone, ci verrà mostrata l'intera transizione di movimento dell'oggetto in questione. A seguire, sono state indicate sia la nuova posizione da raggiungere che le nuove caratteristiche
+                    left: "250px", 
+                    opacity: "0.2",
+                    height: "200px",
+                    width: "150px"
+                });
+                $("p").fadeOut();
+                $("p").fadeIn();
+                $("#slide").slideToggle();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selettori jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <h2>Paragrafo 1</h2>
+    <p id="par1" class="light">Lorem ipsum...</p>
+    <h2>Paragrafo 2</h2>
+    <p id="par2">Lorem ipsum...</p>
+    <a href="https://www.google.com" target="_blank">Google</a> | <a href="#">Link vuoto</a>
+    <h2>Paragrafo 3</h2>
+    <p id="par3" class="light">Lorem ipsum... <span class="light">Altro lorem ipsum...</span></p>
+    <script>
+        $(document).ready(function(){ // questo codice viene letto quando il documento viene caricato ed è pronto nel browser
+            // $("p").hide(); // nascondo tutti i paragrafi
+            // $("#par1").hide(); // nascondiamo soltanto il paragrafo 1, selezionando il suo ID
+            // $(".light").hide(); // nascondo gli elementi che hanno la classe indicata
+            // $("h2").hide();
+            // $("span.light").hide(); // nascondo gli span con classe light
+            // $("h2:first").hide(); // nascondo il primo H2
+            // $("a").hide(); // nascondo i link
+            // $("[href='#']").hide(); // nascondo il valore di attributo, mettendo l'attributo tra parentesi quadre e il valore tra apici singoli
+            // $("[href='https://www.google.com']").hide(); // nascondo il valore di attributo
+        });
+    </script>
+</body>
+</html>

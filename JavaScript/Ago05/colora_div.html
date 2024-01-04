@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colora div</title>
+    <style>
+        .interno {
+            width: 150px;
+            height: 150px;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="contenitore">
+        <script>
+            for (let i = 1; i <= 49; i++) {
+                document.write("<div class='interno'></div>"); // posso usare write() perchè il body è ancora vuoto
+            }
+        </script>
+    </div>
+    
+    <script>
+        window.addEventListener("load", colora);
+
+        function colora() {
+            let elemento = document.getElementById("contenitore").getElementsByTagName("div"); // genero un array dei div
+            let numero = elemento.length; // recupero la lunghezza dell'array, che sarà 49
+
+            for (i = 0; i < numero; i++) {
+
+                // % è il resto della divisione i/3
+                if (i%3 == 0) { // "i" divisibile per 3...
+                    elemento[i].style.backgroundColor = "#ff0000";
+                } else if (i%3 == 1) { // non divisibile con resto 1...
+                    elemento[i].style.backgroundColor = "#ffff00";
+                } else { // sottinteso non divisibile con resto 2...
+                    elemento [i].style.backgroundColor = "#0000ff";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

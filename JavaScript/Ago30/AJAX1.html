@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importa testo</title>
+</head>
+<body>
+    <h2>Oggetto XMLHttpRequest</h2>
+    <div id="prova">
+        <button id="pulsante">Cambia</button>
+    </div>
+    <script>
+        document.getElementById("pulsante").addEventListener("click", caricaDoc);
+
+        function caricaDoc() {
+            let richiesta = new XMLHttpRequest(); // creo istanza di XMLGttpRequest
+            richiesta.onload = function()
+            { //onload significa al caricamento
+                //Seguono quesiti di controllo per stabilire se ho una connettività tra i due documenti, e se il documento dall'altra parte è presente
+                if(this.readyState == 4 && this.status == 200) { // controlli di connettività tra i due file
+                    document.getElementById("prova").innerHTML = this.responseText; // recupero il contenuto del documento esterno
+                }
+            }
+
+            richiesta.open("GET", "file_prova.txt", true); // open: ottiene il file esterno - true: parametro di controllo
+            richiesta.send(); // invio il file alla presente pagina web
+        };
+    </script> 
+</body>
+</html>

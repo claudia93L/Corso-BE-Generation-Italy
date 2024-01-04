@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+.box-no-wrap {
+    display: flex;
+    flex-direction: row; /* In orizzontale da sinistra */
+    flex-wrap: nowrap; /* Non va a capo */
+    background-color: darkgrey;
+}
+
+.box-row-wrap-flexend {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Va a capo */
+    justify-content: flex-end; /* Allineato a destra */
+    background-color: darkgrey;
+}
+
+.box-row-wrapreverse {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse; /* Va a capo partendo dal primo */
+    background-color: darkgrey;
+}
+
+.box-row-wrap-spaceevenly {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly; /* Div equidistanti */
+    background-color: darkgrey;
+}
+
+.box-row-wrap-spacearound {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Div con margini uguali */
+    background-color: darkgrey;
+}
+
+.box-columnreverse {
+    display: flex;
+    flex-direction: column-reverse; /* In colonna partendo dal basso */
+    flex-wrap: nowrap;
+    background-color: darkgrey;
+}
+
+/* Formatto tutti i div (anonimi) inclusi in quelli con display:flex */
+
+.box-no-wrap > div, 
+.box-row-wrap-flexend > div, 
+.box-row-wrapreverse > div, 
+.box-row-wrap-spaceevenly > div,
+.box-row-wrap-spacearound > div, 
+.box-columnreverse > div {
+    background-color: #f1f1f1;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 50px; /* Altezza della linea di testo */
+    font-size: 30px; /* La differenza tra font size e line height sarà lo spazio libero verticale nei div */
+    
+}
