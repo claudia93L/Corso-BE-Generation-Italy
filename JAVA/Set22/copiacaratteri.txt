@@ -1,1 +1,0 @@
-Questo é un file per effettuare la copia caratteri con Java, in data 22/09/2022.
