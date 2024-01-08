@@ -1,0 +1,5 @@
+*.html language=HTML
+*.js language=JavaScript
+*.sql language=SQL
+*.java language=Java
+*.css language=CSS
